@@ -5,6 +5,7 @@
 ;; Version: 0.1.0
 ;; Keywords: faces
 ;; URL: https://github.com/p3r7/space-theming
+;; Package-Requires: ((emacs "24"))
 ;;
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -38,21 +39,21 @@
 ;; VARS
 
 (defvar space-theming-modifications '()
-  "An alist of theme modifications. Each element should
-be on the form (THEME . SPEC), where THEME is a symbol
-representing a theme, and SPEC is an alist mapping faces
+  "An alist of theme modifications.  Each element should \
+be on the form (THEME . SPEC), where THEME is a symbol \
+representing a theme, and SPEC is an alist mapping faces \
 to face specs (see `defface').")
 
 (defvar space-theming-headings-inherit-from-default '()
-  "A list of themes where all headings should inherit
+  "A list of themes where all headings should inherit \
 from the default face, or the symbol `all'.")
 
 (defvar space-theming-headings-same-size '()
-  "A list of themes where all headings should have the
+  "A list of themes where all headings should have the \
 same size, or the symbol `all'.")
 
 (defvar space-theming-headings-bold '()
-  "A list of themes where all headings should be bold,
+  "A list of themes where all headings should be bold, \
 or the symbol `all'.")
 
 (defvar space-theming--header-faces
@@ -92,8 +93,8 @@ or the symbol `all'.")
 (defvar space-theming--current-theme nil
   "Currently loaded theme.")
 
-(defun space-theming--track-theme (theme &optional no-confirm)
-  "Track the current theme."
+(defun space-theming--track-theme (theme &optional _no-confirm)
+  "Track the current THEME."
   (setq space-theming--current-theme theme))
 
 (advice-add 'load-theme :after #'space-theming--track-theme)
@@ -102,9 +103,9 @@ or the symbol `all'.")
 
 ;; MAIN ADVICE
 
-(defun space-theming--theming (theme &optional no-confirm)
-  "Removes existing user theming and applies customizations for the given
-theme."
+(defun space-theming--theming (theme &optional _no-confirm)
+  "Remove existing user theming and apply customizations \
+for the given THEME."
   ;; Headings
   (let ((mods nil))
     (when (space-theming--in-or-all theme space-theming-headings-inherit-from-default)
@@ -130,7 +131,7 @@ theme."
   "Update face overrides for current theme."
   (interactive)
   (unless space-theming--current-theme
-    (error "Current theme is unknown (`space-theming--current-theme' not set)."))
+    (error "Current theme is unknown (`space-theming--current-theme' not set)"))
   (space-theming--theming space-theming--current-theme))
 
 
@@ -150,7 +151,7 @@ theme."
 ;; PRIVATE HELPERS
 
 (defun space-theming--in-or-all (key seq)
-  "Returns t if KEY is found in SEQ or if SEQ equals 'all."
+  "Return t if KEY is found in SEQ or if SEQ equals 'all."
   (or (eq 'all seq) (memq key seq)))
 
 
