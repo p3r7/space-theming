@@ -3,7 +3,7 @@
 Port of [Spacemacs theming layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bthemes/theming
 ) to vanilla Emacs.
 
-This package allows to easilly override theme faces by configuration.
+This package allows to easily override theme faces by configuration.
 
 
 ## Installation

@@ -142,7 +142,7 @@ for the given THEME."
   "Function to drop in your init.el after loading `space-theming'."
   ;; Apply theme customizations after any call to load-theme
   (advice-add 'load-theme :after #'space-theming--theming)
-  ;; Apply the initial customizations now, because load-theme has propably already been called
+  ;; Apply the initial customizations now, because load-theme has probably already been called
   (when space-theming--current-theme
     (space-theming-update-current-theme)))
 
