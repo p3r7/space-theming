@@ -1,7 +1,6 @@
 # space-theming
 
-Port of [Spacemacs theming layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bthemes/theming
-) to vanilla Emacs.
+Port of [Spacemacs theming layer](https://www.spacemacs.org/layers/+themes/theming/README.html) ([code](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bthemes/theming)) to vanilla Emacs.
 
 This package allows to easily override theme faces by configuration.
 
@@ -60,7 +59,11 @@ If a theme gets loaded before `space-theming-init-theming` gets called, you'd ne
 (space-theming-update-current-theme)
 ```
 
+Starting on Emacs 27, you might have to set the following:
 
+```el
+(setq custom--inhibit-theme-enable nil)
+```
 
 ## Edge-case: applying to new frames
 
@@ -93,4 +96,4 @@ I also tried doing the following in init.el but this did not work:
 
 I made the package track the current theme being used, into var `space-theming--current-theme`. This is done by adding function `space-theming--track-theme` as an _:after_ advice to `load-theme`.
 
-Originally, the Spacemacs layer was referring it with var `spacemacs--cur-theme` that gets set in the [core theme switcher](https://github.com/syl20bnr/spacemacs/blob/master/core/core-themes-support.el).
+Originally, the Spacemacs layer was tracking it with var `spacemacs--cur-theme` that gets set in the [core theme switcher](https://github.com/syl20bnr/spacemacs/blob/master/core/core-themes-support.el).
