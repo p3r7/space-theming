@@ -94,6 +94,35 @@ I also tried doing the following in init.el but this did not work:
 
 ## Implementation details
 
+### Naming differences with original layer
+
+Public symbols:
+
+| type of symbol     | name in original layer                  | name in space-theming                         |
+|--------------------|-----------------------------------------|-----------------------------------------------|
+| function           | `theming/init-theming`                  | `space-theming-init-theming`                  |
+| function (command) | `spacemacs/update-theme`                | `space-theming-update-current-theme`          |
+| var                | `theming-modifications`                 | `space-theming-modifications`                 |
+| var                | `theming-headings-inherit-from-default` | `space-theming-headings-inherit-from-default` |
+| var                | `theming-headings-same-size`            | `space-theming-headings-same-size`            |
+| var                | `theming-headings-bold`                 | `space-theming-headings-bold`                 |
+
+Private symbols:
+
+| type of symbol | name in original layer                  | name in space-theming                         |
+|----------------|-----------------------------------------|-----------------------------------------------|
+| function       | `spacemacs//theming`                    | `space-theming--theming`                      |
+| function       | `spacemacs//in-or-all `                 | `space-theming--in-or-all`                    |
+| var            | `spacemacs--theming-header-faces`       | `space-theming--header-faces`                 |
+
+Please note that var `spacemacs--theming-modified-faces` has not been ported.
+It's use-case seems to be to undo modifications to current theme when the user manually calls `spacemacs/update-theme` after changing overrides for current theme (`theming-modifications`) whithout having changed theme in the meantime.
+
+It added quite an overhead to a use-case that could be dealt with simply re-applying current theme.
+
+
+### Current theme tracking
+
 I made the package track the current theme being used, into var `space-theming--current-theme`. This is done by adding function `space-theming--track-theme` as an _:after_ advice to `load-theme`.
 
 Originally, the Spacemacs layer was tracking it with var `spacemacs--cur-theme` that gets set in the [core theme switcher](https://github.com/syl20bnr/spacemacs/blob/master/core/core-themes-support.el).
