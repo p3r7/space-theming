@@ -18,6 +18,10 @@ For now, the recommended way to install is with [use-package](https://github.com
 
 ## Usage
 
+For more details see the [original layer documentation](https://www.spacemacs.org/layers/+themes/theming/README.html).
+
+### Basic
+
 ```el
 (use-package space-theming
   ;; ...
@@ -64,6 +68,21 @@ Starting on Emacs 27, you might have to set the following:
 ```el
 (setq custom--inhibit-theme-enable nil)
 ```
+
+### Headers
+
+In addition, this package provides vars to help with header faces overrides.
+
+Those vars take a list of themes (or the special value `'all`).
+
+| var                                           | description                                                            |
+|-----------------------------------------------|------------------------------------------------------------------------|
+| `space-theming-headings-inherit-from-default` | Themes for which headers should inherit the `default` face             |
+| `space-theming-headings-same-size`            | Themes for which headers should all have the same size as regular text |
+| `theming-headings-bold`                       | Themes for which headers should be `:bold`                                                                       |
+
+The list of faces to consider as headers is defined with var `space-theming--header-faces`.
+
 
 ## Edge-case: applying to new frames
 
