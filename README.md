@@ -4,6 +4,8 @@ Port of [Spacemacs theming layer](https://www.spacemacs.org/layers/+themes/themi
 
 This package allows to easily override theme faces by configuration.
 
+For more context, read the [accompanying blog post](https://www.eigenbahn.com/2020/04/06/emacs-theme-override).
+
 
 ## Installation
 
