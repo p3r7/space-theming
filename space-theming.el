@@ -28,7 +28,7 @@
 ;;; Commentary:
 ;;  -----------
 ;;
-;; Easilly override theme faces by configuration.
+;; Easily override theme faces by configuration.
 ;; This is a port of the 'theming' layer from Spacemacs to regular Emacs.
 ;;
 ;; Customize `space-theming-modifications' with your face overrides, e.g. for theme white-sand and tango:
