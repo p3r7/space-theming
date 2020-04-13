@@ -53,22 +53,22 @@
  ;; VARS
 
 (defvar space-theming-modifications '()
-  "An alist of theme modifications.  Each element should \
-be on the form (THEME . SPEC), where THEME is a symbol \
-representing a theme, and SPEC is an alist mapping faces \
-to face specs (see `defface').")
+  "An alist of theme modifications.  Each element should be on
+  the form (THEME . SPEC), where THEME is a symbol representing a
+  theme, and SPEC is an alist mapping faces to face specs (see
+  `defface').")
 
 (defvar space-theming-headings-inherit-from-default '()
-  "A list of themes where all headings should inherit \
-from the default face, or the symbol `all'.")
+  "A list of themes where all headings should inherit from the
+  default face, or the symbol `all'.")
 
 (defvar space-theming-headings-same-size '()
-  "A list of themes where all headings should have the \
-same size, or the symbol `all'.")
+  "A list of themes where all headings should have the same size,
+  or the symbol `all'.")
 
 (defvar space-theming-headings-bold '()
-  "A list of themes where all headings should be bold, \
-or the symbol `all'.")
+  "A list of themes where all headings should be bold, or the
+  symbol `all'.")
 
 (defvar space-theming--header-faces
   '(font-latex-sectioning-0-face
@@ -118,8 +118,8 @@ or the symbol `all'.")
 ;; MAIN ADVICE
 
 (defun space-theming--theming (theme &optional _no-confirm)
-  "Remove existing user theming and apply customizations \
-for the given THEME."
+  "Remove existing user theming and apply customizations for the
+given THEME."
   ;; Headings
   (let ((mods nil))
     (when (space-theming--in-or-all theme space-theming-headings-inherit-from-default)
