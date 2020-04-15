@@ -7,7 +7,7 @@
 ;; URL: https://github.com/p3r7/space-theming
 ;; Package-Requires: ((emacs "24"))
 ;;
-;;; License: GPLv3
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
 ;;  -----------
