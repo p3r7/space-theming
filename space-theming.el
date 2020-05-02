@@ -10,7 +10,6 @@
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
-;;  -----------
 ;;
 ;; Easily override theme faces by configuration.
 ;; This is a port of the 'theming' layer from Spacemacs to regular Emacs.
